@@ -9,13 +9,14 @@ import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.it.porjecttest.R
+import com.it.porjecttest.base.BaseActivity
 import com.it.porjecttest.databinding.ActivityMainBinding
 import com.it.porjecttest.utils.ApiStatus
 import com.it.porjecttest.viewmodels.LauchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     val model: LauchViewModel by viewModels()
     lateinit var bind: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
