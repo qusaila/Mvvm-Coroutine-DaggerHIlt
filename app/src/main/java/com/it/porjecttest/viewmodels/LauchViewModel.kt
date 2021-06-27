@@ -20,12 +20,12 @@ import javax.inject.Inject
 
 class LauchViewModel : BaseViewModel {
 
-    var repo: UserReposetory
+    var userRepo: UserReposetory
     var data: MutableLiveData<GetUserInfoResponce>
 
     @Inject
     constructor(repo: UserReposetory) {
-        this.repo = repo
+        this.userRepo = repo
         data = MutableLiveData(GetUserInfoResponce())
     }
 
@@ -33,7 +33,7 @@ class LauchViewModel : BaseViewModel {
         if (isInternetConnected(MyApp.getInstance())) {
             emit(Resource.loading(data = null))
             try {
-                val res = repo.getData()
+                val res = userRepo.getData()
                 data.postValue(res)
                 emit(Resource.success(data = res))
 
